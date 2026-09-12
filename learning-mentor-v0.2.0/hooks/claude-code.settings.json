@@ -1,0 +1,17 @@
+{
+	"_comment": "Claude Code 用。~/.claude/settings.json または <repo>/.claude/settings.json の hooks に統合する。command のパスは bun 本体と mentor-update.ts の実際の場所に書き換えること（bun が PATH にある保証はないので、bun 自体も絶対パスで書くのが安全）。",
+	"hooks": {
+		"SessionStart": [
+			{
+				"matcher": "startup",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "bun \"$HOME/learning-mentor/mentor-update.ts\" --hook",
+						"timeout": 10
+					}
+				]
+			}
+		]
+	}
+}
